@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'Avenir';
+  src: url("../font/avenir.otf") format("opentype");
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvenirHeavy';
+  src: url("../font/Avenir-Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'AvenirMedium';
+  src: url("../font/Avenir_Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Avenir';
+  src: url("../font/avenir.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'Heavitas';
+  src: url("../font/Heavitas.otf") format("opentype");
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: black;
+}
+
+canvas {
+  border: none;
+}
+
+.fontPreload {
+  position: absolute;
+  left: -1000px;
+  visibility: hidden;
+}
+
+#phaser-ads {
+  position: absolute;
+  margin-left: -120px;
+  overflow: hidden;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+}
+
+#phaser-game {
+  position: relative;
+  z-index: 0;
+}
+
+iframe[id^="vmx-frameInt_"] {
+  position: relative;
+  top: 26px;
+  background-color: black;
+}
+
+.holds-the-iframe {
+    background:url(../assets/loading.png) center center no-repeat;
+}
