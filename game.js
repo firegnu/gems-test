@@ -89,7 +89,7 @@ function ellipsizeText(softkey, portionLenght, number) {
   this.newText = softkey.text.substr(0, this.fixLenght) + '...';
 
   softkey.text = this.newText;
-  
+
   if(1 === number) {
     softkey.x = game.camera.x + 10 + softkey.width / 2;
   }
@@ -149,7 +149,7 @@ Phaser.Plugin.Softkey.prototype._keyPress = function (e, arg) {
       break;
   }
 
-  if(!keyHandler) 
+  if(!keyHandler)
     keyHandler = this.defaultHandler[key];
 
   keyHandler && keyHandler();
@@ -1612,15 +1612,15 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
   if (
     true
   ) {
-    const timeout = setTimeout(function() {
-      const frame = document.getElementById('iframe-ads');
-      if (frame) {
-        frame.remove();
-      }
-      clearTimeout(timeout);
-      navigator.spatialNavigationEnabled = false;
-      containerCfg.onAdFinished();
-    }, 10000);
+    // const timeout = setTimeout(function() {
+    //   const frame = document.getElementById('iframe-ads');
+    //   if (frame) {
+    //     frame.remove();
+    //   }
+    //   clearTimeout(timeout);
+    //   navigator.spatialNavigationEnabled = false;
+    //   containerCfg.onAdFinished();
+    // }, 10000);
 
     const ifrm = document.createElement('iframe');
     ifrm.setAttribute('id', 'iframe-ads');
@@ -1641,19 +1641,19 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
       },
       listeners: {
         adviewability: function() {
-          clearTimeout(timeout);
+          // clearTimeout(timeout);
           navigator.spatialNavigationEnabled = true;
           console.log('...............................................adsvisibility!!!!');
         },
         adclose: function() {
-          clearTimeout(timeout);
+          // clearTimeout(timeout);
           console.log('ad close 1');
           navigator.spatialNavigationEnabled = false;
           console.log('close spatiaNavigation...............');
           containerCfg.onAdFinished();
         },
         adclick: function() {
-          clearTimeout(timeout);
+          // clearTimeout(timeout);
           console.log('ad clicked 1');
         }
       }
