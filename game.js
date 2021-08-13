@@ -45,34 +45,34 @@ Phaser.Plugin.Softkey.prototype.config = function (arg) {
 
   this.centerX = game.camera.x + game.camera.width / 2;
   this.portionLenght = Math.round( (game.camera.width * 0.90)/3 );
-    console.log('arg.label.lsk', arg.label.lsk)
-    if (undefined !== arg.label.lsk) {
-      this.lsk = game.add.text(game.camera.x + 10, game.camera.y + (game.camera.height - 12), arg.label.lsk.text,  arg.label.lsk.style ? arg.label.lsk.style: arg.style);
-      this.lsk.x = game.camera.x + 10 + this.lsk.width / 2;
-      this.lsk.anchor.setTo(0.5);
-      this.skGroup.add(this.lsk);
-      if (this.portionLenght < this.lsk.width) {
-        ellipsizeText(this.lsk, this.portionLenght, 1);
-      }
+  console.log('arg.label.lsk', arg.label.lsk)
+  if (undefined !== arg.label.lsk) {
+    this.lsk = game.add.text(game.camera.x + 10, game.camera.y + (game.camera.height - 12), arg.label.lsk.text,  arg.label.lsk.style ? arg.label.lsk.style: arg.style);
+    this.lsk.x = game.camera.x + 10 + this.lsk.width / 2;
+    this.lsk.anchor.setTo(0.5);
+    this.skGroup.add(this.lsk);
+    if (this.portionLenght < this.lsk.width) {
+      ellipsizeText(this.lsk, this.portionLenght, 1);
     }
-    if (undefined !== arg.label.csk) {
-      this.csk = game.add.text(this.centerX, game.camera.y + (game.camera.height - 12), arg.label.csk.text, arg.label.csk.style ? arg.label.csk.style: arg.style);
-      this.csk.anchor.setTo(0.5);
-      this.skGroup.add(this.csk);
-      if (this.portionLenght < this.csk.width) {
-        ellipsizeText(this.csk, this.portionLenght);
-      }
+  }
+  if (undefined !== arg.label.csk) {
+    this.csk = game.add.text(this.centerX, game.camera.y + (game.camera.height - 12), arg.label.csk.text, arg.label.csk.style ? arg.label.csk.style: arg.style);
+    this.csk.anchor.setTo(0.5);
+    this.skGroup.add(this.csk);
+    if (this.portionLenght < this.csk.width) {
+      ellipsizeText(this.csk, this.portionLenght);
     }
+  }
 
-    if (undefined !== arg.label.rsk) {
-      this.rsk = game.add.text(190, game.camera.y + (game.camera.height - 12), arg.label.rsk.text, arg.label.rsk.style ? arg.label.rsk.style: arg.style);
-      this.rsk.x = game.camera.x + (game.camera.width - 10) - this.rsk.width / 2;
-      this.rsk.anchor.setTo(0.5);
-      this.skGroup.add(this.rsk);
-      if (this.portionLenght < this.rsk.width) {
-        ellipsizeText(this.rsk, this.portionLenght, 3);
-      }
+  if (undefined !== arg.label.rsk) {
+    this.rsk = game.add.text(190, game.camera.y + (game.camera.height - 12), arg.label.rsk.text, arg.label.rsk.style ? arg.label.rsk.style: arg.style);
+    this.rsk.x = game.camera.x + (game.camera.width - 10) - this.rsk.width / 2;
+    this.rsk.anchor.setTo(0.5);
+    this.skGroup.add(this.rsk);
+    if (this.portionLenght < this.rsk.width) {
+      ellipsizeText(this.rsk, this.portionLenght, 3);
     }
+  }
 
   return this.skGroup;
 };
@@ -212,7 +212,7 @@ var score = {
       style: game.custom.fontStyleSKBlack,
       label: {
         lsk: {
-         text:  locale.getLocale('home')
+          text:  locale.getLocale('home')
         }
       },
       action: {
@@ -323,10 +323,10 @@ var options = {
       style: game.custom.fontStyleSKBlack,
       label: {
         lsk: {
-         text:  locale.getLocale('home')
+          text:  locale.getLocale('home')
         },
         rsk: {
-         text:  locale.getLocale('about'),
+          text:  locale.getLocale('about'),
         }
       },
       action: {
@@ -614,10 +614,10 @@ var game_start = {
       style: game.custom.fontStyleSKWhite,
       label: {
         lsk: {
-         text: locale.getLocale('restart')
+          text: locale.getLocale('restart')
         },
         rsk: {
-         text: locale.getLocale('options')
+          text: locale.getLocale('options')
         },
         csk: null !== selectedOrb ? locale.getLocale('deselect') : locale.getLocale('select')
       },
@@ -1532,14 +1532,14 @@ var splash = {
     game.load.spritesheet('plus1', "assets/sprites/bonus-time_1.png", 40, 40);
     game.load.spritesheet('plus3', "assets/sprites/bonus-time_3.png", 40, 40);
 
-   //Options
-   game.load.image('focus', 'assets/focus-options.png');
-   game.load.image('on', 'assets/selector-on.png');
-   game.load.image('off', 'assets/selector-off.png');
+    //Options
+    game.load.image('focus', 'assets/focus-options.png');
+    game.load.image('on', 'assets/selector-on.png');
+    game.load.image('off', 'assets/selector-off.png');
 
-   // Game Over
-   game.load.image('gameover_title', "assets/label-game_over.png");
-   game.load.image('new_max_record', "assets/new-record.png");
+    // Game Over
+    game.load.image('gameover_title', "assets/label-game_over.png");
+    game.load.image('new_max_record', "assets/new-record.png");
 
     // Score
     game.load.image('score_title', "assets/label-dots.png");
@@ -1748,22 +1748,22 @@ game.state.add('score', score);
 game.init = false;
 navigator.mozL10n.ready(function () {
 
-    if (Render.Options.isPaused) {
-      Render.Options.hide();
-    }
-    if (Render.Confirm.isOpen) {
-      Render.Confirm.hide();
-    }
-    if (Render.GameOver.isLose) {
-      Render.GameOver.hide();
-    }
-    game.paused = false;
-    if (!game.init) {
-      game.state.start('splash');
-    } else {
-      game.bgSound.stop();
-      game.state.start('menu');
-    }
+  if (Render.Options.isPaused) {
+    Render.Options.hide();
+  }
+  if (Render.Confirm.isOpen) {
+    Render.Confirm.hide();
+  }
+  if (Render.GameOver.isLose) {
+    Render.GameOver.hide();
+  }
+  game.paused = false;
+  if (!game.init) {
+    game.state.start('splash');
+  } else {
+    game.bgSound.stop();
+    game.state.start('menu');
+  }
 
 });
 
@@ -1796,10 +1796,10 @@ Render.Confirm = {
       style: game.custom.fontStyleSKWhite,
       label: {
         lsk: {
-         text: locale.getLocale('cancel')
+          text: locale.getLocale('cancel')
         },
         rsk: {
-        text: locale.getLocale('quit')
+          text: locale.getLocale('quit')
         }
       },
       action: {
@@ -1856,10 +1856,10 @@ Render.Options = {
       style: game.custom.fontStyleSKBlack,
       label: {
         lsk: {
-         text: locale.getLocale('home')
+          text: locale.getLocale('home')
         },
         rsk: {
-         text: locale.getLocale('resume')
+          text: locale.getLocale('resume')
         }
       },
       action: {
