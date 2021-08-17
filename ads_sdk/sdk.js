@@ -202,7 +202,7 @@ const KaiDisplayAdsSdk = (frameID) => {
     frame.style.width = "" + w + "px";
     frame.style.height = "" + h + "px";
     frame.style.marginTop = "" + topmargin + "px";
-    frame.src = "https://www.baidu.com";
+    frame.src = "https://example.com/";
     // frame.src =
     //   adFrameSrc +
     //   "#o=" +
