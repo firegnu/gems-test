@@ -61,10 +61,10 @@ function handleKeydownEvent(e) {
 }
 
 const KaiDisplayAdsSdk = (frameID) => {
-  var adFrameOrigin = "https://jioads.akamaized.net";
-  var adFrameSrc = "https://jioads.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
-  // var adFrameOrigin = "https://firegnu.github.io/gems-test";
-  // var adFrameSrc = "https://firegnu.github.io/gems-test/remote/frame.html";
+  // var adFrameOrigin = "https://jioads.akamaized.net";
+  // var adFrameSrc = "https://jioads.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
+  var adFrameOrigin = "https://firegnu.github.io/gems-test";
+  var adFrameSrc = "https://firegnu.github.io/gems-test/remote/frame.html";
   let handlers = {};
 
   const getActiveAdFrame = () => {
@@ -110,9 +110,9 @@ const KaiDisplayAdsSdk = (frameID) => {
     // Validation of messages
     console.log('........................................................................');
     console.log(e.origin);
-    if (e.origin !== adFrameOrigin) {
-      return;
-    }
+    // if (e.origin !== adFrameOrigin) {
+    //   return;
+    // }
     if (e.data === "ad-frame-exit") {
       const frame = getActiveAdFrame();
       if (frame) {
@@ -138,13 +138,13 @@ const KaiDisplayAdsSdk = (frameID) => {
     }
 
     if (payload.event === "close") {
-      const frame = getActiveAdFrame();
-      if (frame) {
-        frame.remove();
-        // close the cursor
-        console.log('got ad close event....... close the cursor');
-        window.jio_gameSDK.spatialNav(false);
-      }
+      // const frame = getActiveAdFrame();
+      // if (frame) {
+      //   frame.remove();
+      //   // close the cursor
+      //   console.log('got ad close event....... close the cursor');
+      //   window.jio_gameSDK.spatialNav(false);
+      // }
     }
     if (payload.event === "viewability") {
       postViewability();
@@ -202,30 +202,31 @@ const KaiDisplayAdsSdk = (frameID) => {
     frame.style.width = "" + w + "px";
     frame.style.height = "" + h + "px";
     frame.style.marginTop = "" + topmargin + "px";
-    frame.src =
-      adFrameSrc +
-      "#o=" +
-      encodeURIComponent(window.location.origin) + // This parameter must be the origin of main application, not the origin of ad frame
-      "&fid=" +
-      encodeURIComponent(frameID) +
-      "&w=" +
-      encodeURIComponent(w) +
-      "&h=" +
-      encodeURIComponent(h) +
-      "&fullscreen=" +
-      (fullscreen ? "1" : "0") +
-      "&advid=" +
-      encodeURIComponent(advid) +
-      "&uid=" +
-      encodeURIComponent(uid) +
-      "&adspot=" +
-      encodeURIComponent(adspot) +
-      "&pkg=" +
-      encodeURIComponent(pkg) +
-      "&adref=" +
-      encodeURIComponent(adref) +
-      "&cdata=" +
-      encodeURIComponent(cdata);
+    frame.src = "https://www.baidu.com";
+    // frame.src =
+    //   adFrameSrc +
+    //   "#o=" +
+    //   encodeURIComponent(window.location.origin) + // This parameter must be the origin of main application, not the origin of ad frame
+    //   "&fid=" +
+    //   encodeURIComponent(frameID) +
+    //   "&w=" +
+    //   encodeURIComponent(w) +
+    //   "&h=" +
+    //   encodeURIComponent(h) +
+    //   "&fullscreen=" +
+    //   (fullscreen ? "1" : "0") +
+    //   "&advid=" +
+    //   encodeURIComponent(advid) +
+    //   "&uid=" +
+    //   encodeURIComponent(uid) +
+    //   "&adspot=" +
+    //   encodeURIComponent(adspot) +
+    //   "&pkg=" +
+    //   encodeURIComponent(pkg) +
+    //   "&adref=" +
+    //   encodeURIComponent(adref) +
+    //   "&cdata=" +
+    //   encodeURIComponent(cdata);
 
     window.addEventListener("message", onMessage);
     window.addEventListener("keydown", onKeydown);
