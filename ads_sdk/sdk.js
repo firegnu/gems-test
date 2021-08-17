@@ -202,31 +202,30 @@ const KaiDisplayAdsSdk = (frameID) => {
     frame.style.width = "" + w + "px";
     frame.style.height = "" + h + "px";
     frame.style.marginTop = "" + topmargin + "px";
-    frame.src = "https://example.com/";
-    // frame.src =
-    //   adFrameSrc +
-    //   "#o=" +
-    //   encodeURIComponent(window.location.origin) + // This parameter must be the origin of main application, not the origin of ad frame
-    //   "&fid=" +
-    //   encodeURIComponent(frameID) +
-    //   "&w=" +
-    //   encodeURIComponent(w) +
-    //   "&h=" +
-    //   encodeURIComponent(h) +
-    //   "&fullscreen=" +
-    //   (fullscreen ? "1" : "0") +
-    //   "&advid=" +
-    //   encodeURIComponent(advid) +
-    //   "&uid=" +
-    //   encodeURIComponent(uid) +
-    //   "&adspot=" +
-    //   encodeURIComponent(adspot) +
-    //   "&pkg=" +
-    //   encodeURIComponent(pkg) +
-    //   "&adref=" +
-    //   encodeURIComponent(adref) +
-    //   "&cdata=" +
-    //   encodeURIComponent(cdata);
+    frame.src =
+      adFrameSrc +
+      "#o=" +
+      encodeURIComponent(window.location.origin) + // This parameter must be the origin of main application, not the origin of ad frame
+      "&fid=" +
+      encodeURIComponent(frameID) +
+      "&w=" +
+      encodeURIComponent(w) +
+      "&h=" +
+      encodeURIComponent(h) +
+      "&fullscreen=" +
+      (fullscreen ? "1" : "0") +
+      "&advid=" +
+      encodeURIComponent(advid) +
+      "&uid=" +
+      encodeURIComponent(uid) +
+      "&adspot=" +
+      encodeURIComponent(adspot) +
+      "&pkg=" +
+      encodeURIComponent(pkg) +
+      "&adref=" +
+      encodeURIComponent(adref) +
+      "&cdata=" +
+      encodeURIComponent(cdata);
 
     window.addEventListener("message", onMessage);
     window.addEventListener("keydown", onKeydown);
