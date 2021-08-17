@@ -33,6 +33,7 @@
           this.iframe = document.querySelector(iframeQuery);
         }
         if (this.iframe && document.activeElement === this.iframe) {
+          window.open('https://www.kaiostech.com/');
           this.iframe.blur();
           this.cb();
         }

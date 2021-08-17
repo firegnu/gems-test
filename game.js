@@ -1633,6 +1633,10 @@ JioKaiAds.prototype.showAds = function(containerCfg) {
         adclose: function() {
           console.log('ad close 1');
           containerCfg.onAdFinished();
+        },
+        adclick: function() {
+          console.log('ad click 1');
+          containerCfg.onAdFinished();
         }
       }
     });
