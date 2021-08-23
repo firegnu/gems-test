@@ -61,10 +61,8 @@ function handleKeydownEvent(e) {
 }
 
 const KaiDisplayAdsSdk = (frameID) => {
-  // var adFrameOrigin = "https://jioads.akamaized.net";
-  // var adFrameSrc = "https://jioads.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
-  var adFrameOrigin = "https://firegnu.github.io/gems-test";
-  var adFrameSrc = "https://firegnu.github.io/gems-test/remote/frame.html";
+  var adFrameOrigin = "https://jioads.akamaized.net";
+  var adFrameSrc = "https://jioads.akamaized.net/betasdk/kaiDisplayAds/testHtml/frame.html";
   let handlers = {};
 
   const getActiveAdFrame = () => {
@@ -110,9 +108,9 @@ const KaiDisplayAdsSdk = (frameID) => {
     // Validation of messages
     console.log('........................................................................');
     console.log(e.origin);
-    // if (e.origin !== adFrameOrigin) {
-    //   return;
-    // }
+    if (e.origin !== adFrameOrigin) {
+      return;
+    }
     if (e.data === "ad-frame-exit") {
       const frame = getActiveAdFrame();
       if (frame) {
@@ -138,13 +136,13 @@ const KaiDisplayAdsSdk = (frameID) => {
     }
 
     if (payload.event === "close") {
-      // const frame = getActiveAdFrame();
-      // if (frame) {
-      //   frame.remove();
-      //   // close the cursor
-      //   console.log('got ad close event....... close the cursor');
-      //   window.jio_gameSDK.spatialNav(false);
-      // }
+      const frame = getActiveAdFrame();
+      if (frame) {
+        frame.remove();
+        // close the cursor
+        console.log('got ad close event....... close the cursor');
+        window.jio_gameSDK.spatialNav(false);
+      }
     }
     if (payload.event === "viewability") {
       postViewability();
@@ -158,7 +156,6 @@ const KaiDisplayAdsSdk = (frameID) => {
       if (frame) {
         console.log('...........sdk ads click...frame...removed........debug......');
         frame.remove();
-        window.jio_gameSDK.spatialNav(false);
       }
     }
     if (handlers["ad" + payload.event]) {
